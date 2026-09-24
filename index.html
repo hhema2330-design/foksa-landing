@@ -6,8 +6,8 @@
   <meta name="description" content="FOKSA — أتمتة عمليات العقارات وإدارة الأملاك في الخليج: متابعة العملاء، جدولة المعاينات، العقود، التحصيل، الصيانة، ولوحات مؤشرات." />
   <meta name="theme-color" content="#E31925" />
 
-  <meta property="og:title" content="FOKSA | أتمتة عمليات العقارات وإدارة الأملاك في الخليج" />
-  <meta property="og:description" content="نحوّل العمليات اليدوية إلى نظام قابل للقياس: Workflow + Integrations + Dashboards، مع سرية وخصوصية (NDA)." />
+  <meta property="og:title" content="FOKSA | أتمتة عمليات العقارات وإدارة الأملاك" />
+  <meta property="og:description" content="Workflow + Integrations + Dashboards — نتائج قابلة للقياس مع خصوصية وسرية (NDA) عند الطلب." />
   <meta property="og:type" content="website" />
 
   <title>FOKSA | أتمتة عمليات العقارات للخليج</title>
@@ -17,9 +17,6 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./styles.css" />
-
-  <!-- (Optional) Add tracking later -->
-  <!-- GA4 / Meta Pixel / LinkedIn Insight Tag -->
 </head>
 
 <body>
@@ -27,7 +24,7 @@
   <header class="header" id="top">
     <div class="container header__inner">
       <a class="brand" href="#top" aria-label="FOKSA Home">
-        <img src="./assets/logo.png" alt="FOKSA logo" class="brand__logo" />
+        <div class="brand__mark" aria-hidden="true">F</div>
         <div class="brand__meta">
           <div class="brand__name">FOKSA</div>
           <div class="brand__tag" data-i18n="brandTag">Automation for GCC</div>
@@ -44,7 +41,8 @@
 
       <div class="header__actions">
         <button class="btn btn--ghost btn--sm" id="langToggle" type="button" aria-label="Toggle language">EN</button>
-        <a class="btn btn--primary btn--sm" href="#contact" data-i18n="headerCta">احجز تشخيص مجاني</a>
+        <a class="btn btn--primary btn--sm" id="ctaHeader" href="#contact" data-i18n="headerCta">احجز تشخيص مجاني</a>
+
         <button class="hamburger" id="hamburger" type="button" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
@@ -144,35 +142,35 @@
       <div class="container">
         <div class="section__head">
           <h2 class="h2" data-i18n="solTitle">حلول عملية للعقارات وإدارة الأملاك</h2>
-          <p class="muted" data-i18n="solLead">نركز على العمليات اللي لو اتظبطت… هتفرق فورًا في المبيعات/التأجير والتحصيل.</p>
+          <p class="muted" data-i18n="solLead">نركز على العمليات اللي لو اتظبطت… هتفرق فورًا في التأجير والتحصيل وخدمة العملاء.</p>
         </div>
 
         <div class="grid3">
           <article class="box">
             <h3 data-i18n="s1t">إدارة الاستفسارات والعملاء (Leads)</h3>
-            <p data-i18n="s1p">تجميع الاستفسارات من واتساب/نماذج/إعلانات، وتوزيعها تلقائيًا على الفريق مع متابعة موثقة.</p>
+            <p data-i18n="s1p">تجميع الاستفسارات وتوزيعها على الفريق مع متابعة موثقة لتقليل ضياع العملاء.</p>
             <ul class="bullets">
               <li data-i18n="s1b1">توزيع تلقائي حسب المنطقة/النوع</li>
               <li data-i18n="s1b2">تذكيرات Follow-up</li>
-              <li data-i18n="s1b3">لوحة أداء للوسطاء/الموظفين</li>
+              <li data-i18n="s1b3">لوحة أداء</li>
             </ul>
           </article>
 
           <article class="box">
             <h3 data-i18n="s2t">جدولة المعاينات + إدارة الوحدات</h3>
-            <p data-i18n="s2p">حجز مواعيد منظم، تحديث حالة الوحدة، وسجل كامل لكل تواصل/معاينة.</p>
+            <p data-i18n="s2p">حجز مواعيد منظم، تحديث حالة الوحدة، وسجل لكل معاينة وتواصل.</p>
             <ul class="bullets">
               <li data-i18n="s2b1">تأكيدات وتنبيهات تلقائية</li>
               <li data-i18n="s2b2">نماذج بيانات موحدة</li>
-              <li data-i18n="s2b3">تتبع حالة الوحدة (متاحة/محجوزة/مؤجرة)</li>
+              <li data-i18n="s2b3">تتبع حالة الوحدة</li>
             </ul>
           </article>
 
           <article class="box">
             <h3 data-i18n="s3t">العقود والتحصيل والصيانة</h3>
-            <p data-i18n="s3p">مسارات موافقات للعقود، تنبيهات للتحصيل، وتذاكر صيانة منظمة مع SLA واضح.</p>
+            <p data-i18n="s3p">Workflow للموافقات + تنبيهات التحصيل/التجديد + تذاكر صيانة منظمة.</p>
             <ul class="bullets">
-              <li data-i18n="s3b1">Workflow موافقات العقود</li>
+              <li data-i18n="s3b1">موافقات العقود</li>
               <li data-i18n="s3b2">تنبيهات دفعات/تجديدات</li>
               <li data-i18n="s3b3">تذاكر صيانة + تقارير</li>
             </ul>
@@ -182,9 +180,7 @@
         <div class="wide">
           <div class="wide__left">
             <h3 data-i18n="wideTitle">مش “أتمتة وخلاص”… هدفنا أرباح أوضح</h3>
-            <p class="muted" data-i18n="wideText">
-              بنقيس قبل وبعد: زمن الدورة، نسبة الأخطاء، وإعادة العمل. ثم نبني نظام بسيط يشتغل مع فريقك مش ضده.
-            </p>
+            <p class="muted" data-i18n="wideText">بنقيس قبل/بعد: زمن الدورة، الأخطاء، وإعادة العمل—وبنبني نظام بسيط يشتغل مع فريقك.</p>
           </div>
           <div class="wide__right">
             <div class="stat">
@@ -197,14 +193,12 @@
             </div>
             <div class="stat">
               <div class="stat__v">Audit</div>
-              <div class="stat__t" data-i18n="st3">سجل وتتبع للتغييرات</div>
+              <div class="stat__t" data-i18n="st3">سجل للتغييرات</div>
             </div>
           </div>
         </div>
 
-        <p class="fine" data-i18n="fine1">
-          ملحوظة: لو عندك نظام قائم (CRM/ERP) غالبًا مش هنحتاج تغييره—بنبدأ بتكاملات وتحسين تدريجي.
-        </p>
+        <p class="fine" data-i18n="fine1">ملحوظة: لو عندك نظام قائم (CRM/ERP) غالبًا مش هنحتاج تغييره—بنبدأ بتحسين وتكامل تدريجي.</p>
       </div>
     </section>
 
@@ -213,26 +207,26 @@
       <div class="container">
         <div class="section__head">
           <h2 class="h2" data-i18n="whyTitle">لماذا FOKSA؟</h2>
-          <p class="muted" data-i18n="whyLead">أسلوب تنفيذ “عملي” يناسب الخليج: وضوح، سرية، وتسليمات قابلة للقياس.</p>
+          <p class="muted" data-i18n="whyLead">أسلوب تنفيذ عملي يناسب الخليج: وضوح، سرية، وتسليمات قابلة للقياس.</p>
         </div>
 
         <div class="grid2">
           <div class="box">
             <h3 data-i18n="w1t">سرية وخصوصية</h3>
-            <p data-i18n="w1p">بيانات العملاء والعقود حساسة. نلتزم بالسرية، ويمكن توقيع NDA، وتحديد صلاحيات وصول واضحة.</p>
+            <p data-i18n="w1p">بيانات العملاء والعقود حساسة. نلتزم بالسرية ويمكن توقيع NDA، مع صلاحيات وصول واضحة.</p>
             <ul class="bullets">
-              <li data-i18n="w1b1">Access control</li>
-              <li data-i18n="w1b2">Logs & traceability</li>
-              <li data-i18n="w1b3">مشاركة أقل… تحكم أكثر</li>
+              <li data-i18n="w1b1">صلاحيات وصول</li>
+              <li data-i18n="w1b2">توثيق وتتبع</li>
+              <li data-i18n="w1b3">تحكم أعلى</li>
             </ul>
           </div>
 
           <div class="box">
             <h3 data-i18n="w2t">تنفيذ خفيف وسريع</h3>
-            <p data-i18n="w2p">نبدأ بـ MVP يشتغل بسرعة، ثم تحسينات منظمة حسب النتائج بدل مشاريع ضخمة بلا نهاية.</p>
+            <p data-i18n="w2p">نبدأ بـ MVP شغال بسرعة، ثم تحسينات منظمة حسب النتائج بدل مشاريع كبيرة بلا نهاية.</p>
             <ul class="bullets">
               <li data-i18n="w2b1">Scope واضح</li>
-              <li data-i18n="w2b2">تسليمات أسبوعية</li>
+              <li data-i18n="w2b2">تسليمات قصيرة</li>
               <li data-i18n="w2b3">قياس قبل/بعد</li>
             </ul>
           </div>
@@ -253,7 +247,7 @@
       <div class="container">
         <div class="section__head">
           <h2 class="h2" data-i18n="procTitle">آلية تنفيذ واضحة</h2>
-          <p class="muted" data-i18n="procLead">من أول مكالمة… لحد تشغيل فعلي وتسليم مستندات ونظام قابل للصيانة.</p>
+          <p class="muted" data-i18n="procLead">من أول مكالمة… لحد تشغيل فعلي وتسليم نظام قابل للصيانة.</p>
         </div>
 
         <div class="steps">
@@ -262,23 +256,20 @@
             <h3 data-i18n="pht1">تشخيص</h3>
             <p data-i18n="php1">نفهم العملية الحالية + أين يضيع الوقت + أين تتكرر الأخطاء.</p>
           </div>
-
           <div class="step">
             <div class="step__n">2</div>
             <h3 data-i18n="pht2">تصميم</h3>
-            <p data-i18n="php2">نرسم Workflow واضح + صلاحيات + نقاط قياس KPI.</p>
+            <p data-i18n="php2">نرسم Workflow + صلاحيات + نقاط قياس KPI.</p>
           </div>
-
           <div class="step">
             <div class="step__n">3</div>
             <h3 data-i18n="pht3">تنفيذ MVP</h3>
-            <p data-i18n="php3">نطلق نسخة أولى شغالة بسرعة، ثم نوسع حسب الأولويات.</p>
+            <p data-i18n="php3">نسلم نسخة أولى شغالة بسرعة، ثم توسعة حسب الأولويات.</p>
           </div>
-
           <div class="step">
             <div class="step__n">4</div>
             <h3 data-i18n="pht4">تشغيل ودعم</h3>
-            <p data-i18n="php4">متابعة، إصلاحات، تحسينات، وتوثيق تسليمات.</p>
+            <p data-i18n="php4">متابعة وتحسينات وتوثيق تسليمات.</p>
           </div>
         </div>
       </div>
@@ -295,22 +286,19 @@
         <div class="faq">
           <details open>
             <summary data-i18n="fq1q">هل لازم أغير النظام اللي عندي؟</summary>
-            <p data-i18n="fq1a">غالبًا لا. نبدأ بتحسينات وتكاملات حول نظامك الحالي لتقليل الإدخال اليدوي وزمن الدورة.</p>
+            <p data-i18n="fq1a">غالبًا لا. بنبدأ بتكاملات وتحسينات حول نظامك الحالي لتقليل الإدخال اليدوي وزمن الدورة.</p>
           </details>
-
           <details>
-            <summary data-i18n="fq2q">هل تضمنوا أرقام معينة؟</summary>
-            <p data-i18n="fq2a">نضمن منهجية قياس وتنفيذ وتسليم واضح. الأرقام تعتمد على الوضع الحالي—ونقدم تقدير ROI بعد التشخيص.</p>
+            <summary data-i18n="fq2q">هل في التزام بالسرية؟</summary>
+            <p data-i18n="fq2a">نعم. يمكن توقيع NDA وتحديد صلاحيات وصول وتوثيق التغييرات.</p>
           </details>
-
           <details>
-            <summary data-i18n="fq3q">هل تقدروا تشتغلوا بسرية؟</summary>
-            <p data-i18n="fq3a">نعم. يمكن توقيع NDA، وتحديد صلاحيات وصول، وتوثيق كل تغيير.</p>
+            <summary data-i18n="fq3q">هل تضمنوا أرقام محددة؟</summary>
+            <p data-i18n="fq3a">نضمن منهجية قياس وتنفيذ وتسليم واضح. النتائج تعتمد على الوضع الحالي، ونقدّم تقدير ROI بعد التشخيص.</p>
           </details>
-
           <details>
-            <summary data-i18n="fq4q">هل في دعم بعد التنفيذ؟</summary>
-            <p data-i18n="fq4a">نعم—متابعة وتشغيل وتحسينات حسب الاتفاق، مع توثيق يسهّل الاستمرارية.</p>
+            <summary data-i18n="fq4q">إزاي التواصل بعد الإرسال؟</summary>
+            <p data-i18n="fq4a">الإرسال يتم عبر واتساب برسالة جاهزة؛ بعدها نحدد موعد التشخيص ونطلب أي تفاصيل إضافية عند الحاجة.</p>
           </details>
         </div>
       </div>
@@ -321,22 +309,10 @@
       <div class="container contact">
         <div class="contact__card">
           <h2 class="h2" data-i18n="cTitle">احجز تشخيص مجاني</h2>
-          <p class="muted" data-i18n="cLead">اكتب العملية اللي بتعاني منها (متابعة عملاء/تحصيل/صيانة/عقود)… وهنرد بسرعة.</p>
+          <p class="muted" data-i18n="cLead">املأ البيانات واضغط “إرسال عبر واتساب” — هتفتح رسالة جاهزة وترسلها لنا.</p>
 
-          <form
-            class="form"
-            name="foksa-leads"
-            method="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            action="/?success=1"
-            id="leadForm"
-          >
-            <input type="hidden" name="form-name" value="foksa-leads" />
-            <p class="hidden">
-              <label>Don’t fill this out: <input name="bot-field" /></label>
-            </p>
-
+          <!-- WhatsApp-only form (no backend) -->
+          <form class="form" id="leadForm">
             <div class="row">
               <label>
                 <span data-i18n="fName">الاسم</span>
@@ -354,8 +330,8 @@
                 <input name="country" type="text" placeholder="السعودية / الإمارات / ..." />
               </label>
               <label>
-                <span data-i18n="fPhone">رقم واتساب</span>
-                <input name="phone" required type="tel" placeholder="+966..." />
+                <span data-i18n="fCity">المدينة</span>
+                <input name="city" type="text" placeholder="الرياض / دبي / ..." />
               </label>
             </div>
 
@@ -365,12 +341,12 @@
             </label>
 
             <div class="form__actions">
-              <button class="btn btn--primary btn--lg" type="submit" data-i18n="fSubmit">إرسال</button>
+              <button class="btn btn--primary btn--lg" type="submit" data-i18n="fSubmit">إرسال عبر واتساب</button>
               <a class="btn btn--ghost btn--lg" id="waContact" href="#" data-i18n="fWa">واتساب مباشر</a>
             </div>
 
             <p class="fine" data-i18n="privacyNote">
-              بإرسال النموذج، أنت توافق على التواصل معك بخصوص طلبك فقط. لا نقوم ببيع بياناتك.
+              عند الضغط على إرسال، سيفتح واتساب برسالة جاهزة تحتوي على بياناتك. بياناتك تُستخدم فقط للتواصل بخصوص طلبك.
             </p>
           </form>
         </div>
@@ -396,7 +372,7 @@
             <ul class="list">
               <li data-i18n="g1">خريطة فرص أتمتة مختصرة (Quick Wins)</li>
               <li data-i18n="g2">تقدير وقت/تكلفة بشكل منطقي</li>
-              <li data-i18n="g3">تصور مبدئي للتكاملات المطلوبة</li>
+              <li data-i18n="g3">أولويات تنفيذ واضحة</li>
             </ul>
           </div>
 
@@ -412,7 +388,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__left">
-        <img src="./assets/logo.png" alt="FOKSA logo" class="footer__logo" />
+        <div class="footer__mark" aria-hidden="true">F</div>
         <div>
           <div class="footer__brand">FOKSA</div>
           <div class="footer__muted" data-i18n="footerText">Automation for GCC — All rights reserved.</div>
@@ -424,7 +400,6 @@
 
   <!-- Floating WhatsApp -->
   <a class="waFloat" id="waFloat" href="#" aria-label="WhatsApp">WhatsApp</a>
-
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="./script.js"></script>
