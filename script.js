@@ -1,11 +1,22 @@
+// Clean URL: remove /index.html and #top from the address bar (nicer links)
+(() => {
+  const { pathname, search, hash } = window.location;
+  const cleanPath = pathname.endsWith("/index.html")
+    ? pathname.replace("/index.html", "/")
+    : pathname;
+  const cleanHash = (hash === "#top") ? "" : hash;
+
+  if (cleanPath !== pathname || cleanHash !== hash) {
+    history.replaceState({}, "", cleanPath + search + cleanHash);
+  }
+})();
+
 // ======================
 // FOKSA Landing (No backend)
-// Form opens WhatsApp message
+// Form opens WhatsApp with user's details
 // ======================
 
 const WHATSAPP_NUMBER = "201069857379"; // no '+'
-const EMAIL = "tema.foksa@gmail.com";
-
 let lang = "ar";
 
 const T = {
@@ -105,8 +116,8 @@ const T = {
     fq2a: "نعم. يمكن توقيع NDA وتحديد صلاحيات وصول وتوثيق التغييرات.",
     fq3q: "هل تضمنوا أرقام محددة؟",
     fq3a: "نضمن منهجية قياس وتنفيذ وتسليم واضح. النتائج تعتمد على الوضع الحالي، ونقدّم تقدير ROI بعد التشخيص.",
-    fq4q: "إزاي التواصل بعد الإرسال؟",
-    fq4a: "الإرسال يتم عبر واتساب برسالة جاهزة؛ بعدها نحدد موعد التشخيص ونطلب أي تفاصيل إضافية عند الحاجة.",
+    fq4q: "إزاي يتم الإرسال؟",
+    fq4a: "الإرسال يتم عبر واتساب برسالة جاهزة. بدون فورم سيرفر وبدون خطوات إضافية.",
 
     cTitle: "احجز تشخيص مجاني",
     cLead: "املأ البيانات واضغط “إرسال عبر واتساب” — هتفتح رسالة جاهزة وترسلها لنا.",
@@ -227,8 +238,8 @@ const T = {
     fq2a: "Yes. NDA can be signed; access is controlled and changes are logged.",
     fq3q: "Do you guarantee specific numbers?",
     fq3a: "We guarantee a clear measurement framework and deliverables. Results depend on your baseline; we estimate ROI after diagnosis.",
-    fq4q: "How do I contact you after sending?",
-    fq4a: "Sending opens WhatsApp with a ready message; then we schedule the diagnosis call.",
+    fq4q: "How is it sent?",
+    fq4a: "Sending opens WhatsApp with a ready message. No backend forms, no extra steps.",
 
     cTitle: "Book a free diagnosis",
     cLead: "Fill in the details and click “Send via WhatsApp” — a ready message will open for you to send.",
@@ -254,7 +265,6 @@ const T = {
   }
 };
 
-// ---------- Helpers ----------
 function toast(msg){
   const el = document.getElementById("toast");
   if (!el) return;
@@ -262,6 +272,22 @@ function toast(msg){
   el.style.display = "block";
   clearTimeout(window.__toastTimer);
   window.__toastTimer = setTimeout(() => el.style.display = "none", 2600);
+}
+
+function baseWhatsAppUrl(text){
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+}
+
+function updateWhatsAppLinks(){
+  const baseMsg = (lang === "ar")
+    ? "مرحبًا، أريد حجز تشخيص مجاني لأتمتة عمليات عقارات/إدارة أملاك في الخليج."
+    : "Hi, I'd like to book a free diagnosis for automating real estate / property management operations in the GCC.";
+
+  const url = baseWhatsAppUrl(baseMsg);
+  ["waHero","waContact","waSide","waFloat"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.setAttribute("href", url);
+  });
 }
 
 function applyLanguage(next){
@@ -282,24 +308,7 @@ function applyLanguage(next){
   updateWhatsAppLinks();
 }
 
-function baseWhatsAppUrl(text){
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-}
-
-function updateWhatsAppLinks(){
-  const baseMsg = (lang === "ar")
-    ? "مرحبًا، أريد حجز تشخيص مجاني لأتمتة عمليات عقارات/إدارة أملاك في الخليج."
-    : "Hi, I'd like to book a free diagnosis for automating real estate / property management operations in the GCC.";
-
-  const url = baseWhatsAppUrl(baseMsg);
-
-  ["waHero","waContact","waSide","waFloat"].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.setAttribute("href", url);
-  });
-}
-
-// ---------- Events ----------
+// Mobile menu
 document.getElementById("hamburger")?.addEventListener("click", () => {
   document.getElementById("mobileMenu")?.classList.toggle("show");
 });
@@ -307,16 +316,17 @@ document.querySelectorAll("#mobileMenu a").forEach(a => {
   a.addEventListener("click", () => document.getElementById("mobileMenu")?.classList.remove("show"));
 });
 
+// Language toggle
 document.getElementById("langToggle")?.addEventListener("click", () => {
   applyLanguage(lang === "ar" ? "en" : "ar");
 });
 
-// Form -> WhatsApp message with the user's details
+// Form -> WhatsApp message with user's details (NO EMAIL inside message)
 document.getElementById("leadForm")?.addEventListener("submit", (e) => {
   e.preventDefault();
+
   const form = e.currentTarget;
   const fd = new FormData(form);
-
   const v = (k) => (fd.get(k) || "").toString().trim() || "-";
 
   const msg = (lang === "ar")
@@ -325,15 +335,13 @@ document.getElementById("leadForm")?.addEventListener("submit", (e) => {
       `الشركة: ${v("company")}\n` +
       `الدولة: ${v("country")}\n` +
       `المدينة: ${v("city")}\n` +
-      `المطلوب أتمتته: ${v("need")}\n\n` +
-      `*ملاحظة: التواصل ممكن واتساب أو عبر ${EMAIL}`
+      `المطلوب أتمتته: ${v("need")}`
     : `Hi FOKSA, I'd like to book a free diagnosis.\n\n` +
       `Name: ${v("name")}\n` +
       `Company: ${v("company")}\n` +
       `Country: ${v("country")}\n` +
       `City: ${v("city")}\n` +
-      `Need: ${v("need")}\n\n` +
-      `Note: you can reply on WhatsApp or via ${EMAIL}`;
+      `Need: ${v("need")}`;
 
   const url = baseWhatsAppUrl(msg);
   const win = window.open(url, "_blank");
